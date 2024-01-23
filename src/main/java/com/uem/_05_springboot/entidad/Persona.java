@@ -1,12 +1,20 @@
 package com.uem._05_springboot.entidad;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
+
 
 /* Con la anotacion component se creará un objeto de tipo persona (y solo uno) en el contexto de spring,
 cuyo nombre será "persona"
 El ciclo de vida de este objeto, ya no lo llevarán el programador lo llevará Spring. Este concepto se llama inversion de control */
-@Component (value = "persona66")
+@Component(value = "persona66")
+@Entity
 public class Persona {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
     private int edad;
