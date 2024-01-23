@@ -18,18 +18,31 @@ public class Application {
         ApplicationContext context = SpringApplication.run(Application.class, args);
 
         Persona p1 = new Persona();
-        Persona p2 = (Persona)context.getBean("persona"); //se puede hacer casteando a Persona
+        Persona p2 = (Persona)context.getBean("persona66"); //se puede hacer casteando a Persona
         p2.setNombre("Manuel");
 
-        Persona p3 = context.getBean("persona",Persona.class);
+        Persona p3 = context.getBean("persona66",Persona.class);
         System.out.println(p3.getNombre());
 
         p3 = context.getBean("persona2",Persona.class);
         System.out.println(p3.getNombre());
+        p2 = null;
+        p1 = null;
+
+        p2 = (Persona)context.getBean("persona66");
+        System.out.println(p2.getNombre());
+        // Si es gestionado por spring, el objeto no se destruye hasta que se cierre el contexto de spring, aunque se deje de referenciar
     }
 
     @Bean
     public Persona persona2(){
+        Persona p = new Persona();
+        p.setNombre("El bicho");
+        return p;
+    }
+
+    @Bean
+    public Persona pepito(){
         Persona p = new Persona();
         p.setNombre("El bicho");
         return p;

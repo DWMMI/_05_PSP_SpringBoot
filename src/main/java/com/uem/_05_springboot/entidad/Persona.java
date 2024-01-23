@@ -2,9 +2,10 @@ package com.uem._05_springboot.entidad;
 
 import org.springframework.stereotype.Component;
 
-@Component /* Con la anotacion component se creará un objeto de tipo persona (y solo uno) en el contexto de spring,
+/* Con la anotacion component se creará un objeto de tipo persona (y solo uno) en el contexto de spring,
 cuyo nombre será "persona"
-El ciclo de vida de este objeto, ya no lo llevarán el */
+El ciclo de vida de este objeto, ya no lo llevarán el programador lo llevará Spring. Este concepto se llama inversion de control */
+@Component (value = "persona66")
 public class Persona {
     private int id;
     private String nombre;
